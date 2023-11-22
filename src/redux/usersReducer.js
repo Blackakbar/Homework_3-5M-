@@ -9,10 +9,7 @@ export default function usersReducer(state = initialState, action) {
         case types.USERS:
             return { ...state, users: action.payload };
         case types.USER_ONE_INFO:
-            return {
-                ...state,
-                users: state.users.map(user => (user.id === action.payload.id ? { ...user, additionalInfo: action.payload.additionalInfo } : user))
-            };
+            return { ...state, users: state.users.map(user => (user.id === action.payload.id ? { ...user, additionalInfo: action.payload.additionalInfo } : user))};
         default:
             return state;
     }
